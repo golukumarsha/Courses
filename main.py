@@ -7,7 +7,7 @@ app.include_router(router)
 
 app.add_middleware(
     CORSMiddleware,
-    all_origin=["http://127.0.0.1:58501"],
+    allow_origins=["*"],   # ← "all_origin" → "allow_origins"
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
