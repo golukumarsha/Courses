@@ -3,8 +3,10 @@
    script.js
    ========================================= */
 
-let BASE = 'http://localhost:8000';
+// Baad mein (apna Render URL daalo)
+let BASE = 'https://your-app-name.onrender.com';
 let deleteTargetId = null;
+
 
 /* ──────────────────────────────────────────
    UTILITY: Get current base URL
