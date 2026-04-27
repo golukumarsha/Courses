@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "title": "Python for Beginners",
+    "instructor": "Aanya Sharma",
+    "category": "programming",
+    "price": 499.0,
+    "duration_hours": 12,
+    "is_published": true,
+    "discount_percent": 10.0
+  },
+  {
+    "id": 2,
+    "title": "FastAPI Full Course",
+    "instructor": "Rohan Mehta",
+    "category": "web development",
+    "price": 799.0,
+    "duration_hours": 20,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 3,
+    "title": "Data Structures and Algorithms",
+    "instructor": "Priya Nair",
+    "category": "computer science",
+    "price": 999.0,
+    "duration_hours": 35,
+    "is_published": true,
+    "discount_percent": 15.0
+  },
+  {
+    "id": 4,
+    "title": "Machine Learning with Scikit-Learn",
+    "instructor": "Karan Joshi",
+    "category": "data science",
+    "price": 1299.0,
+    "duration_hours": 40,
+    "is_published": true,
+    "discount_percent": 20.0
+  },
+  {
+    "id": 5,
+    "title": "React.js Zero to Hero",
+    "instructor": "Simran Kaur",
+    "category": "web development",
+    "price": 849.0,
+    "duration_hours": 28,
+    "is_published": false,
+    "discount_percent": null
+  },
+  {
+    "id": 6,
+    "title": "SQL and PostgreSQL Mastery",
+    "instructor": "Arjun Pillai",
+    "category": "databases",
+    "price": 649.0,
+    "duration_hours": 18,
+    "is_published": true,
+    "discount_percent": 5.0
+  },
+  {
+    "id": 7,
+    "title": "Docker and Kubernetes Basics",
+    "instructor": "Neha Gupta",
+    "category": "devops",
+    "price": 1099.0,
+    "duration_hours": 22,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 8,
+    "title": "UI/UX Design Fundamentals",
+    "instructor": "Vikram Desai",
+    "category": "design",
+    "price": 599.0,
+    "duration_hours": 15,
+    "is_published": false,
+    "discount_percent": null
+  },
+  {
+    "id": 9,
+    "title": "Deep Learning with TensorFlow",
+    "instructor": "Priya Nair",
+    "category": "data science",
+    "price": 1499.0,
+    "duration_hours": 50,
+    "is_published": true,
+    "discount_percent": 25.0
+  },
+  {
+    "id": 10,
+    "title": "Linux Command Line for Developers",
+    "instructor": "Aanya Sharma",
+    "category": "devops",
+    "price": 399.0,
+    "duration_hours": 10,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 11,
+    "title": "JavaScript ES6+ Modern Syntax",
+    "instructor": "Simran Kaur",
+    "category": "programming",
+    "price": 549.0,
+    "duration_hours": 16,
+    "is_published": true,
+    "discount_percent": 10.0
+  },
+  {
+    "id": 12,
+    "title": "AWS Cloud Practitioner Prep",
+    "instructor": "Karan Joshi",
+    "category": "cloud",
+    "price": 1199.0,
+    "duration_hours": 30,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 13,
+    "title": "Django REST Framework",
+    "instructor": "Rohan Mehta",
+    "category": "web development",
+    "price": 899.0,
+    "duration_hours": 25,
+    "is_published": false,
+    "discount_percent": null
+  },
+  {
+    "id": 14,
+    "title": "Cybersecurity for Beginners",
+    "instructor": "Arjun Pillai",
+    "category": "security",
+    "price": 749.0,
+    "duration_hours": 20,
+    "is_published": true,
+    "discount_percent": 8.0
+  },
+  {
+    "id": 15,
+    "title": "System Design Interview Prep",
+    "instructor": "Neha Gupta",
+    "category": "computer science",
+    "price": 1399.0,
+    "duration_hours": 45,
+    "is_published": true,
+    "discount_percent": 12.0
+  },
+  {
+    "id": 16,
+    "title": "Git and GitHub Crash Course",
+    "instructor": "Vikram Desai",
+    "category": "devops",
+    "price": 299.0,
+    "duration_hours": 8,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 17,
+    "title": "MongoDB for Backend Developers",
+    "instructor": "Aanya Sharma",
+    "category": "databases",
+    "price": 699.0,
+    "duration_hours": 17,
+    "is_published": true,
+    "discount_percent": null
+  },
+  {
+    "id": 18,
+    "title": "Flutter App Development",
+    "instructor": "Karan Joshi",
+    "category": "mobile development",
+    "price": 949.0,
+    "duration_hours": 32,
+    "is_published": false,
+    "discount_percent": null
+  },
+  {
+    "id": 19,
+    "title": "Data Analysis with Pandas",
+    "instructor": "Priya Nair",
+    "category": "data science",
+    "price": 799.0,
+    "duration_hours": 22,
+    "is_published": true,
+    "discount_percent": 18.0
+  },
+  {
+    "id": 20,
+    "title": "TypeScript for React Developers",
+    "instructor": "Simran Kaur",
+    "category": "web development",
+    "price": 649.0,
+    "duration_hours": 14,
+    "is_published": true,
+    "discount_percent": null
+  }
+]
