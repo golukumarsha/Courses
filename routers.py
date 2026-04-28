@@ -8,7 +8,7 @@ router = APIRouter()   # ✅ नाम router ही रखना
 
 
 # 1. Basic Routes
-@router.get("/")
+@router.get("/api")
 def home():
     return {"message": "Course API Running 🚀"}
 

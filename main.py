@@ -16,7 +16,7 @@ app.add_middleware(
 app.include_router(router)
  
 # ✅ Frontend - single HTML file (CSS + JS sab inline hai)
-@app.get("/ui", include_in_schema=False)
+@app.get("/", include_in_schema=False)
 def serve_frontend():
     return FileResponse("index.html")
 
