@@ -1,20 +1,24 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from routers import router
-
+ 
 app = FastAPI()
-app.include_router(router)
-
+ 
 app.add_middleware(
     CORSMiddleware,
-    # ← "all_origin" → "allow_origins"
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-
+ 
+app.include_router(router)
+ 
+# ✅ Frontend - single HTML file (CSS + JS sab inline hai)
+@app.get("/ui", include_in_schema=False)
+def serve_frontend():
+    return FileResponse("index.html")
 
 # Header -> info. oif user
 # Payload -> Meta deta of user -> "H5256"
