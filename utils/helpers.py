@@ -7,7 +7,7 @@ def read_data():
     try:
         with open(DATA_FILE, "r") as f:
             return json.load(f)
-    except:
+    except Exception:
         return []
 
 
