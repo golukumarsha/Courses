@@ -107,6 +107,9 @@
       <button class="nav-item" onclick="switchTab('search', this)">
         <span class="icon">🔍</span> Search
       </button>
+      <button class="nav-item" onclick="switchTab('sort', this)">
+        <span class="icon">📊</span> Sort Courses
+      </button>
       <button class="nav-item" onclick="switchTab('filter', this)">
         <span class="icon">🎛️</span> Filter Courses
       </button>
@@ -487,6 +490,97 @@
                 <span class="status-pill status-pending" id="search-status">—</span>
               </div>
               <pre id="search-raw"></pre>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== SORT ========== -->
+      <div class="section" id="section-sort">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">📊 Sort Courses <span class="badge get">GET /sort?sort_by=price&amp;order=asc</span></div>
+          </div>
+          <div class="card-body">
+
+            <!-- Sort Controls -->
+            <div class="sort-controls">
+
+              <!-- Sort By buttons -->
+              <div class="sort-group">
+                <div class="sort-group-label">Sort By</div>
+                <div class="sort-btn-row">
+                  <button class="sort-chip active" data-field="price"          onclick="setSortField(this)">💰 Price</button>
+                  <button class="sort-chip"         data-field="title"         onclick="setSortField(this)">🔤 Title</button>
+                  <button class="sort-chip"         data-field="duration_hours" onclick="setSortField(this)">⏱ Duration</button>
+                  <button class="sort-chip"         data-field="instructor"    onclick="setSortField(this)">👨‍🏫 Instructor</button>
+                  <button class="sort-chip"         data-field="category"      onclick="setSortField(this)">🗂 Category</button>
+                  <button class="sort-chip"         data-field="discount_percent" onclick="setSortField(this)">🏷 Discount</button>
+                  <button class="sort-chip"         data-field="id"            onclick="setSortField(this)"># ID</button>
+                </div>
+              </div>
+
+              <!-- Order toggle -->
+              <div class="sort-group">
+                <div class="sort-group-label">Order</div>
+                <div class="sort-btn-row">
+                  <button class="sort-chip active" id="sort-asc"  onclick="setSortOrder('asc',  this)">⬆ Ascending</button>
+                  <button class="sort-chip"        id="sort-desc" onclick="setSortOrder('desc', this)">⬇ Descending</button>
+                </div>
+              </div>
+
+              <!-- Filter by published -->
+              <div class="sort-group">
+                <div class="sort-group-label">Published Filter</div>
+                <div class="sort-btn-row">
+                  <button class="sort-chip active" id="pub-all"   onclick="setSortPub(null,  this)">📋 All</button>
+                  <button class="sort-chip"        id="pub-yes"   onclick="setSortPub(true,  this)">✅ Published</button>
+                  <button class="sort-chip"        id="pub-no"    onclick="setSortPub(false, this)">📝 Drafts</button>
+                </div>
+              </div>
+
+              <!-- Apply button -->
+              <div style="margin-top:8px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                <button class="btn btn-gold" onclick="applySorting()">📊 Apply Sort</button>
+                <button class="btn btn-outline" onclick="resetSort()">↺ Reset</button>
+                <span class="sort-current-info" id="sort-info-text">Sorting by <strong>price</strong> · <strong>ascending</strong></span>
+              </div>
+            </div>
+
+            <!-- Result count -->
+            <div id="sort-result-info" style="display:none; margin:12px 0;">
+              <span class="search-result-count has-result" id="sort-count-text"></span>
+            </div>
+
+            <!-- Results table -->
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th onclick="setSortFieldByCol('id')"            class="sortable-th"># <span class="sort-arrow" id="arr-id"></span></th>
+                    <th onclick="setSortFieldByCol('title')"         class="sortable-th">Title <span class="sort-arrow" id="arr-title"></span></th>
+                    <th onclick="setSortFieldByCol('instructor')"    class="sortable-th">Instructor <span class="sort-arrow" id="arr-instructor"></span></th>
+                    <th onclick="setSortFieldByCol('category')"      class="sortable-th">Category <span class="sort-arrow" id="arr-category"></span></th>
+                    <th onclick="setSortFieldByCol('price')"         class="sortable-th">Price <span class="sort-arrow" id="arr-price">↑</span></th>
+                    <th onclick="setSortFieldByCol('duration_hours')" class="sortable-th">Duration <span class="sort-arrow" id="arr-duration_hours"></span></th>
+                    <th onclick="setSortFieldByCol('discount_percent')" class="sortable-th">Discount <span class="sort-arrow" id="arr-discount_percent"></span></th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="sort-table">
+                  <tr><td colspan="8"><div class="empty-state"><div class="icon">📊</div><p>Sort options chuniye aur Apply dabao</p></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Raw response -->
+            <div class="response-box" id="sort-response" style="display:none;">
+              <div class="response-header">
+                <span class="response-label">Raw Response</span>
+                <span class="status-pill status-pending" id="sort-status">—</span>
+              </div>
+              <pre id="sort-raw"></pre>
             </div>
 
           </div>

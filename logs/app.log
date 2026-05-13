@@ -1,0 +1,65 @@
+2026-05-13 09:51:21 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:21 | [32mINFO    [0m | main | 🎓 CourseVault API — STARTED
+2026-05-13 09:51:21 | [32mINFO    [0m | main | 📄 Docs:  http://127.0.0.1:8000/docs
+2026-05-13 09:51:21 | [32mINFO    [0m | main | 🌐 App:   http://127.0.0.1:8000/
+2026-05-13 09:51:21 | [32mINFO    [0m | main | 📁 Logs:  ./logs/
+2026-05-13 09:51:21 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:28 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN
+2026-05-13 09:51:30 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:30 | [32mINFO    [0m | main | 🎓 CourseVault API — STARTED
+2026-05-13 09:51:30 | [32mINFO    [0m | main | 📄 Docs:  http://127.0.0.1:8000/docs
+2026-05-13 09:51:30 | [32mINFO    [0m | main | 🌐 App:   http://127.0.0.1:8000/
+2026-05-13 09:51:30 | [32mINFO    [0m | main | 📁 Logs:  ./logs/
+2026-05-13 09:51:30 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:37 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN
+2026-05-13 09:51:39 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:39 | [32mINFO    [0m | main | 🎓 CourseVault API — STARTED
+2026-05-13 09:51:39 | [32mINFO    [0m | main | 📄 Docs:  http://127.0.0.1:8000/docs
+2026-05-13 09:51:39 | [32mINFO    [0m | main | 🌐 App:   http://127.0.0.1:8000/
+2026-05-13 09:51:39 | [32mINFO    [0m | main | 📁 Logs:  ./logs/
+2026-05-13 09:51:39 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:48 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN
+2026-05-13 09:51:50 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:51:50 | [32mINFO    [0m | main | 🎓 CourseVault API — STARTED
+2026-05-13 09:51:50 | [32mINFO    [0m | main | 📄 Docs:  http://127.0.0.1:8000/docs
+2026-05-13 09:51:50 | [32mINFO    [0m | main | 🌐 App:   http://127.0.0.1:8000/
+2026-05-13 09:51:50 | [32mINFO    [0m | main | 📁 Logs:  ./logs/
+2026-05-13 09:51:50 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:52:00 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN
+2026-05-13 09:52:01 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:52:01 | [32mINFO    [0m | main | 🎓 CourseVault API — STARTED
+2026-05-13 09:52:01 | [32mINFO    [0m | main | 📄 Docs:  http://127.0.0.1:8000/docs
+2026-05-13 09:52:01 | [32mINFO    [0m | main | 🌐 App:   http://127.0.0.1:8000/
+2026-05-13 09:52:01 | [32mINFO    [0m | main | 📁 Logs:  ./logs/
+2026-05-13 09:52:01 | [32mINFO    [0m | main | ============================================================
+2026-05-13 09:52:08 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN

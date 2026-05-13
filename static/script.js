@@ -106,8 +106,34 @@ async function doRegister() {
   const role = document.getElementById('reg-role').value;
   clearAuthMessages();
 
-  if (!username || !email || !password) { showAuthMsg('register-error', 'Saare fields bharna zaroori hai'); return; }
-  if (password.length < 6) { showAuthMsg('register-error', 'Password minimum 6 characters ka hona chahiye'); return; }
+  // ── Frontend validation (backend se match karta hai) ──
+  if (!username || !email || !password) {
+    showAuthMsg('register-error', 'Saare fields bharna zaroori hai'); return;
+  }
+  if (username.length < 3) {
+    showAuthMsg('register-error', 'Username kam se kam 3 characters ka hona chahiye'); return;
+  }
+  if (!/^[a-zA-Z0-9_\.]+$/.test(username)) {
+    showAuthMsg('register-error', 'Username mein sirf letters, numbers, _ aur . allowed hain'); return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showAuthMsg('register-error', 'Valid email daalo (e.g. user@example.com)'); return;
+  }
+  if (password.length < 8) {
+    showAuthMsg('register-error', 'Password kam se kam 8 characters ka hona chahiye'); return;
+  }
+  if (!/[A-Z]/.test(password)) {
+    showAuthMsg('register-error', 'Password mein kam se kam 1 uppercase letter hona chahiye (A-Z)'); return;
+  }
+  if (!/[a-z]/.test(password)) {
+    showAuthMsg('register-error', 'Password mein kam se kam 1 lowercase letter hona chahiye (a-z)'); return;
+  }
+  if (!/\d/.test(password)) {
+    showAuthMsg('register-error', 'Password mein kam se kam 1 number hona chahiye (0-9)'); return;
+  }
+  if (!/[!@#$%^&*()_+\-=\[\]{}|;\':",./<>?]/.test(password)) {
+    showAuthMsg('register-error', 'Password mein kam se kam 1 special character chahiye (!@#$% etc)'); return;
+  }
 
   const btn = document.getElementById('register-btn');
   btn.disabled = true; btn.textContent = 'Creating account...';
@@ -119,7 +145,16 @@ async function doRegister() {
       body: JSON.stringify({ username, email, password, role })
     });
     const data = await res.json();
-    if (!res.ok) { showAuthMsg('register-error', data.detail || 'Registration failed'); return; }
+    if (!res.ok) {
+      // 422 validation errors
+      if (res.status === 422 && Array.isArray(data.detail)) {
+        const msg = data.detail.map(e => e.msg).join(' | ');
+        showAuthMsg('register-error', msg);
+      } else {
+        showAuthMsg('register-error', data.detail || 'Registration failed');
+      }
+      return;
+    }
     showAuthMsg('register-success', 'Account bana! Ab Sign In karein, ' + username, 'success');
     setTimeout(() => {
       document.querySelectorAll('.auth-tab')[0].click();
@@ -154,7 +189,38 @@ async function api(method, path, body=null) {
     const text = await res.text().catch(() => 'Server error');
     data = { detail: 'Server error: ' + res.status + ' — ' + text.substring(0, 100) };
   }
+  // ── 422 Validation errors — readable banao ──────────
+  if (res.status === 422 && data.detail && Array.isArray(data.detail)) {
+    const msgs = data.detail.map(err => {
+      const field = err.loc ? err.loc[err.loc.length - 1] : 'field';
+      return `• <strong>${field}</strong>: ${err.msg}`;
+    });
+    showValidationErrors(msgs);
+    data._validationMessages = msgs;
+  }
   return { ok: res.ok, status: res.status, data };
+}
+
+// ─── VALIDATION ERROR POPUP ───────────────────────────
+function showValidationErrors(msgs) {
+  // Remove old popup if any
+  const old = document.getElementById('validation-popup');
+  if (old) old.remove();
+
+  const popup = document.createElement('div');
+  popup.id = 'validation-popup';
+  popup.className = 'validation-popup';
+  popup.innerHTML = `
+    <div class="vp-header">
+      <span>⚠️ Validation Errors</span>
+      <button onclick="document.getElementById('validation-popup').remove()">✕</button>
+    </div>
+    <div class="vp-body">${msgs.join('<br>')}</div>
+  `;
+  document.body.appendChild(popup);
+  // Auto remove after 8 seconds
+  setTimeout(() => { if (popup.parentNode) popup.remove(); }, 8000);
+  toast('Validation error — fields check karein ⚠️', 'error');
 }
 
 // ─── TOAST ────────────────────────────────────────────
@@ -181,7 +247,7 @@ function setLoading(section) {
 }
 
 // ─── NAVIGATION ───────────────────────────────────────
-const tabTitles = { dashboard:'Dashboard', courses:'All Courses', 'get-one':'Get by ID', create:'Create Course', update:'Update Course', delete:'Delete Course', search:'Search', filter:'Filter Courses', pagination:'Pagination', analytics:'Analytics', reviews:'Reviews & Ratings', 'top-rated':'Top Rated Courses', 'my-reviews':'My Reviews', enroll:'Enroll in Course', 'my-enrollments':'My Enrollments', 'all-enrollments':'All Enrollments', 'top-courses':'Top Enrolled Courses', 'my-account':'My Account' };
+const tabTitles = { dashboard:'Dashboard', courses:'All Courses', 'get-one':'Get by ID', create:'Create Course', update:'Update Course', delete:'Delete Course', search:'Search', sort:'Sort Courses', filter:'Filter Courses', pagination:'Pagination', analytics:'Analytics', reviews:'Reviews & Ratings', 'top-rated':'Top Rated Courses', 'my-reviews':'My Reviews', enroll:'Enroll in Course', 'my-enrollments':'My Enrollments', 'all-enrollments':'All Enrollments', 'top-courses':'Top Enrolled Courses', 'my-account':'My Account' };
 
 function switchTab(name, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -808,6 +874,142 @@ async function loadMyReviews() {
         <td style="color:var(--text-muted);font-size:0.82rem">${formatDate(rv.created_at)}</td>
       </tr>`).join('');
     toast(`${reviews.length} review(s) loaded`, 'success');
+  } catch(e) { toast('Error: ' + e.message, 'error'); }
+}
+
+// ─── SORT ─────────────────────────────────────────────
+let sortField = 'price';
+let sortOrder = 'asc';
+let sortPub   = null;   // null=all, true=published, false=draft
+
+function setSortField(btn) {
+  document.querySelectorAll('.sort-chip[data-field]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  sortField = btn.dataset.field;
+  updateSortInfo();
+  updateSortArrows();
+}
+
+function setSortFieldByCol(field) {
+  // Click on table header — toggle order if same field
+  if (sortField === field) {
+    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortField = field;
+    sortOrder = 'asc';
+  }
+  // Sync chips
+  document.querySelectorAll('.sort-chip[data-field]').forEach(b => {
+    b.classList.toggle('active', b.dataset.field === field);
+  });
+  document.getElementById('sort-asc').classList.toggle('active',  sortOrder === 'asc');
+  document.getElementById('sort-desc').classList.toggle('active', sortOrder === 'desc');
+  updateSortInfo();
+  updateSortArrows();
+  applySorting();
+}
+
+function setSortOrder(order, btn) {
+  document.getElementById('sort-asc').classList.remove('active');
+  document.getElementById('sort-desc').classList.remove('active');
+  btn.classList.add('active');
+  sortOrder = order;
+  updateSortInfo();
+  updateSortArrows();
+}
+
+function setSortPub(val, btn) {
+  document.getElementById('pub-all').classList.remove('active');
+  document.getElementById('pub-yes').classList.remove('active');
+  document.getElementById('pub-no').classList.remove('active');
+  btn.classList.add('active');
+  sortPub = val;
+  updateSortInfo();
+}
+
+function updateSortInfo() {
+  const pubText = sortPub === null ? 'All' : sortPub ? 'Published only' : 'Drafts only';
+  document.getElementById('sort-info-text').innerHTML =
+    `Sorting by <strong>${sortField}</strong> · <strong>${sortOrder}ending</strong> · <strong>${pubText}</strong>`;
+}
+
+function updateSortArrows() {
+  const fields = ['id','title','instructor','category','price','duration_hours','discount_percent'];
+  fields.forEach(f => {
+    const el = document.getElementById('arr-' + f);
+    if (!el) return;
+    if (f === sortField) el.textContent = sortOrder === 'asc' ? '↑' : '↓';
+    else el.textContent = '';
+  });
+}
+
+function resetSort() {
+  sortField = 'price'; sortOrder = 'asc'; sortPub = null;
+  document.querySelectorAll('.sort-chip[data-field]').forEach(b => b.classList.toggle('active', b.dataset.field === 'price'));
+  document.getElementById('sort-asc').classList.add('active');
+  document.getElementById('sort-desc').classList.remove('active');
+  document.getElementById('pub-all').classList.add('active');
+  document.getElementById('pub-yes').classList.remove('active');
+  document.getElementById('pub-no').classList.remove('active');
+  document.getElementById('sort-table').innerHTML = '<tr><td colspan="8"><div class="empty-state"><div class="icon">📊</div><p>Sort options chuniye aur Apply dabao</p></div></td></tr>';
+  document.getElementById('sort-response').style.display = 'none';
+  document.getElementById('sort-result-info').style.display = 'none';
+  updateSortInfo();
+  updateSortArrows();
+}
+
+async function applySorting() {
+  const tbody    = document.getElementById('sort-table');
+  const respBox  = document.getElementById('sort-response');
+  const rawPre   = document.getElementById('sort-raw');
+  const statusEl = document.getElementById('sort-status');
+  const infoDiv  = document.getElementById('sort-result-info');
+  const countEl  = document.getElementById('sort-count-text');
+
+  tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><p>Loading...</p></div></td></tr>';
+  respBox.style.display = 'none';
+
+  let url = `${BASE_URL}/sort?sort_by=${sortField}&order=${sortOrder}`;
+  if (sortPub !== null) url += `&is_published=${sortPub}`;
+
+  try {
+    const res  = await fetch(url);
+    const data = await res.json();
+
+    respBox.style.display  = 'block';
+    rawPre.textContent     = JSON.stringify(data, null, 2);
+    statusEl.textContent   = res.status + (res.ok ? ' OK' : ' Error');
+    statusEl.className     = 'status-pill ' + (res.ok ? 'status-ok' : 'status-error');
+
+    if (!res.ok) {
+      tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><p>Error: ${data.detail}</p></div></td></tr>`;
+      toast(data.detail || 'Error', 'error');
+      return;
+    }
+
+    const results = data.data || [];
+    infoDiv.style.display  = 'block';
+    countEl.textContent    = `${results.length} course${results.length !== 1 ? 's' : ''} — sorted by ${sortField} (${sortOrder})`;
+
+    if (!results.length) {
+      tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><div class="icon">😕</div><p>Koi course nahi mila</p></div></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = results.map(c => `
+      <tr>
+        <td><strong>#${c.id}</strong></td>
+        <td>${c.title}</td>
+        <td>${c.instructor}</td>
+        <td><span class="pill cat">${c.category}</span></td>
+        <td><span class="price-tag ${sortField==='price'?'sort-highlight-cell':''}">₹${c.price}</span></td>
+        <td class="${sortField==='duration_hours'?'sort-highlight-cell':''}">${c.duration_hours}h</td>
+        <td class="${sortField==='discount_percent'?'sort-highlight-cell':''}">${c.discount_percent ? '<span class="discount-tag">'+c.discount_percent+'% OFF</span>' : '—'}</td>
+        <td><span class="pill ${c.is_published?'published':'draft'}">${c.is_published?'Published':'Draft'}</span></td>
+      </tr>`).join('');
+
+    updateSortArrows();
+    toast(`${results.length} courses sorted by ${sortField} ↑↓`, 'success');
   } catch(e) { toast('Error: ' + e.message, 'error'); }
 }
 
