@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+
+  # ─── PostgreSQL Database ──────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: coursevault_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER:     ${POSTGRES_USER:-coursevault}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-coursevault123}
+      POSTGRES_DB:       ${POSTGRES_DB:-coursevault_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-coursevault} -d ${POSTGRES_DB:-coursevault_db}"]
+      interval: 10s
+      timeout:  5s
+      retries:  5
+    networks:
+      - coursevault_network
+
+  # ─── FastAPI Application ──────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coursevault_app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-coursevault}:${POSTGRES_PASSWORD:-coursevault123}@db:5432/${POSTGRES_DB:-coursevault_db}
+      SECRET_KEY:   ${SECRET_KEY:-coursevault-super-secret-key-change-in-production}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./logs:/app/logs
+      - ./static:/app/static
+    networks:
+      - coursevault_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/home"]
+      interval: 30s
+      timeout:  10s
+      retries:  3
+
+# ─── Volumes ──────────────────────────────────────────
+volumes:
+  postgres_data:
+    driver: local
+
+# ─── Networks ─────────────────────────────────────────
+networks:
+  coursevault_network:
+    driver: bridge

@@ -1,0 +1,86 @@
+2026-05-13 09:56:25 | [31mERROR   [0m | main | ← ERR  [d8d633ff] POST /reviews/course/3 | UNHANDLED: ResponseValidationError: 1 validation error:
+  {'type': 'datetime_type', 'loc': ('response', 'created_at'), 'msg': 'Input should be a valid datetime', 'input': None}
+
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\routers\reviews_router.py", line 14, in submit_review
+    POST /reviews/course/{course_id} | 48.24ms
+2026-05-13 09:56:25 | [35mCRITICAL[0m | main | UNHANDLED EXCEPTION on /reviews/course/3: ResponseValidationError: 1 validation error:
+  {'type': 'datetime_type', 'loc': ('response', 'created_at'), 'msg': 'Input should be a valid datetime', 'input': None}
+
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\routers\reviews_router.py", line 14, in submit_review
+    POST /reviews/course/{course_id}
+Traceback (most recent call last):
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\main.py", line 53, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\fastapi\routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\fastapi\routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'datetime_type', 'loc': ('response', 'created_at'), 'msg': 'Input should be a valid datetime', 'input': None}
+
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\routers\reviews_router.py", line 14, in submit_review
+    POST /reviews/course/{course_id}
+2026-05-13 14:02:10 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-13 14:02:10 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 14:16:30 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-13 14:16:30 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 14:16:36 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-13 14:16:36 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 14:17:18 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'nisha2332@gmail.com'
+2026-05-13 14:17:18 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 14:17:24 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'nisha2332@gmail.com'
+2026-05-13 14:17:24 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 14:17:29 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'nisha2332@gmail.com'
+2026-05-13 14:17:29 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-13 15:04:45 | [33mWARNING [0m | main | HTTP 404 on /favicon.ico: Not Found
