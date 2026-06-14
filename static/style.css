@@ -1164,3 +1164,77 @@ mark.search-highlight {
   line-height: 1.8;
 }
 .vp-body strong { color: var(--crimson); }
+
+/* =========================================
+   RATE LIMIT BANNER
+   ========================================= */
+.rate-limit-banner {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  background: #fff;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 340px;
+  max-width: 480px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);     opacity: 1; }
+}
+
+.rl-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rl-content { flex: 1; }
+
+.rl-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+.rl-msg {
+  font-size: 0.84rem;
+  color: #78350f;
+  margin-bottom: 10px;
+}
+.rl-msg strong { color: #d97706; }
+
+.rl-bar-wrap {
+  height: 6px;
+  background: #fde68a;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.rl-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  border-radius: 20px;
+  transition: width 1s linear;
+}
+
+.rate-limit-banner > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #92400e;
+  padding: 0 4px;
+  flex-shrink: 0;
+}

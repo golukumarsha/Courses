@@ -199,3 +199,127 @@
 2026-05-13 15:08:11 | ← RES  [c7827dea] GET    /analytics/top-instructors | STATUS: 200 | 6.93ms
 2026-05-13 15:08:24 | → REQ  [ee7c5e41] GET    /search?q=1 | IP: 127.0.0.1
 2026-05-13 15:08:24 | ← RES  [ee7c5e41] GET    /search?q=1 | STATUS: 200 | 4.56ms
+2026-05-14 10:55:34 | → REQ  [22f3b96e] GET    / | IP: 127.0.0.1
+2026-05-14 10:55:35 | ← RES  [22f3b96e] GET    / | STATUS: 200 | 51.74ms
+2026-05-14 10:55:35 | → REQ  [1d7b38f3] GET    /static/style.css | IP: 127.0.0.1
+2026-05-14 10:55:35 | → REQ  [f9329aee] GET    /static/script.js | IP: 127.0.0.1
+2026-05-14 10:55:35 | ← RES  [1d7b38f3] GET    /static/style.css | STATUS: 200 | 3.73ms
+2026-05-14 10:55:35 | ← RES  [f9329aee] GET    /static/script.js | STATUS: 200 | 3.38ms
+2026-05-14 10:55:44 | → REQ  [d0ab9a2e] GET    / | IP: 127.0.0.1
+2026-05-14 10:55:44 | ← RES  [d0ab9a2e] GET    / | STATUS: 200 | 5.2ms
+2026-05-14 10:55:44 | → REQ  [00afd933] GET    /static/style.css | IP: 127.0.0.1
+2026-05-14 10:55:44 | → REQ  [91623f69] GET    /static/script.js | IP: 127.0.0.1
+2026-05-14 10:55:44 | ← RES  [00afd933] GET    /static/style.css | STATUS: 200 | 7.04ms
+2026-05-14 10:55:44 | ← RES  [91623f69] GET    /static/script.js | STATUS: 200 | 6.72ms
+2026-05-14 10:55:44 | → REQ  [0ee6e8fb] GET    /favicon.ico | IP: 127.0.0.1
+2026-05-14 10:55:44 | ← RES  [0ee6e8fb] GET    /favicon.ico | STATUS: 404 | 3.72ms
+2026-05-14 10:55:58 | → REQ  [a2f9902d] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:55:59 | ← RES  [a2f9902d] POST   /auth/login | STATUS: 401 | 752.32ms
+2026-05-14 10:56:21 | → REQ  [3fa3d4e5] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:56:22 | ← RES  [3fa3d4e5] POST   /auth/login | STATUS: 401 | 620.7ms
+2026-05-14 10:56:24 | → REQ  [f42b1f5e] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:56:24 | ← RES  [f42b1f5e] POST   /auth/login | STATUS: 401 | 594.76ms
+2026-05-14 10:56:34 | → REQ  [78cbd6bc] POST   /auth/register | IP: 127.0.0.1
+2026-05-14 10:56:34 | ← RES  [78cbd6bc] POST   /auth/register | STATUS: 400 | 13.17ms
+2026-05-14 10:56:35 | → REQ  [0d271f99] POST   /auth/register | IP: 127.0.0.1
+2026-05-14 10:56:35 | ← RES  [0d271f99] POST   /auth/register | STATUS: 400 | 8.46ms
+2026-05-14 10:56:44 | → REQ  [d47e983a] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:56:44 | ← RES  [d47e983a] POST   /auth/login | STATUS: 401 | 647.85ms
+2026-05-14 10:56:48 | → REQ  [4ab85420] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:56:49 | ← RES  [4ab85420] POST   /auth/login | STATUS: 401 | 636.63ms
+2026-05-14 10:56:53 | → REQ  [e7b8f0c6] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:56:55 | → REQ  [cd58912c] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:57:00 | → REQ  [710dad2f] POST   /auth/login | IP: 127.0.0.1
+2026-05-14 10:57:01 | ← RES  [710dad2f] POST   /auth/login | STATUS: 200 | 743.72ms
+2026-05-14 10:57:02 | → REQ  [aa62fd4c] GET    /courses | IP: 127.0.0.1
+2026-05-14 10:57:02 | ← RES  [aa62fd4c] GET    /courses | STATUS: 200 | 58.45ms
+2026-05-14 10:57:12 | → REQ  [5dde3a41] GET    /auth/me | IP: 127.0.0.1
+2026-05-14 10:57:12 | ← RES  [5dde3a41] GET    /auth/me | STATUS: 200 | 55.91ms
+2026-05-14 10:57:17 | → REQ  [52bc3260] GET    /enrollments/top-courses | IP: 127.0.0.1
+2026-05-14 10:57:17 | ← RES  [52bc3260] GET    /enrollments/top-courses | STATUS: 200 | 67.96ms
+2026-05-14 10:57:18 | → REQ  [7de72b2d] GET    /enrollments/all | IP: 127.0.0.1
+2026-05-14 10:57:18 | ← RES  [7de72b2d] GET    /enrollments/all | STATUS: 200 | 55.2ms
+2026-05-14 10:57:19 | → REQ  [426abfdf] GET    /enrollments/all | IP: 127.0.0.1
+2026-05-14 10:57:19 | ← RES  [426abfdf] GET    /enrollments/all | STATUS: 200 | 8.86ms
+2026-05-14 10:57:20 | → REQ  [716a4320] GET    /enrollments/my | IP: 127.0.0.1
+2026-05-14 10:57:20 | ← RES  [716a4320] GET    /enrollments/my | STATUS: 200 | 59.98ms
+2026-05-14 10:57:24 | → REQ  [0a98dba9] GET    /reviews/my/all | IP: 127.0.0.1
+2026-05-14 10:57:24 | ← RES  [0a98dba9] GET    /reviews/my/all | STATUS: 200 | 60.64ms
+2026-05-14 10:57:25 | → REQ  [e4bf29ee] GET    /reviews/top-rated | IP: 127.0.0.1
+2026-05-14 10:57:25 | ← RES  [e4bf29ee] GET    /reviews/top-rated | STATUS: 200 | 41.49ms
+2026-05-14 10:57:27 | → REQ  [783ebb7d] GET    /analytics/summary | IP: 127.0.0.1
+2026-05-14 10:57:27 | ← RES  [783ebb7d] GET    /analytics/summary | STATUS: 200 | 13.86ms
+2026-05-14 10:57:27 | → REQ  [356c2e78] GET    /analytics/popular-category | IP: 127.0.0.1
+2026-05-14 10:57:27 | ← RES  [356c2e78] GET    /analytics/popular-category | STATUS: 200 | 7.99ms
+2026-05-14 10:57:27 | → REQ  [a9c2233a] GET    /analytics/avg-price | IP: 127.0.0.1
+2026-05-14 10:57:27 | ← RES  [a9c2233a] GET    /analytics/avg-price | STATUS: 200 | 8.55ms
+2026-05-14 10:57:27 | → REQ  [3100c0c3] GET    /analytics/revenue | IP: 127.0.0.1
+2026-05-14 10:57:27 | ← RES  [3100c0c3] GET    /analytics/revenue | STATUS: 200 | 11.2ms
+2026-05-14 10:57:27 | → REQ  [921ef669] GET    /analytics/top-instructors | IP: 127.0.0.1
+2026-05-14 10:57:27 | ← RES  [921ef669] GET    /analytics/top-instructors | STATUS: 200 | 8.35ms
+2026-05-14 10:57:49 | → REQ  [7035a2d8] GET    /courses | IP: 127.0.0.1
+2026-05-14 10:57:49 | ← RES  [7035a2d8] GET    /courses | STATUS: 200 | 7.24ms
+2026-05-14 10:57:50 | → REQ  [23cb9407] GET    /courses | IP: 127.0.0.1
+2026-05-14 10:57:50 | ← RES  [23cb9407] GET    /courses | STATUS: 200 | 8.56ms
+2026-05-14 10:57:59 | → REQ  [f139da94] GET    /reviews/top-rated | IP: 127.0.0.1
+2026-05-14 10:57:59 | ← RES  [f139da94] GET    /reviews/top-rated | STATUS: 200 | 6.46ms
+2026-05-14 10:58:00 | → REQ  [9e46cbc6] GET    /reviews/my/all | IP: 127.0.0.1
+2026-05-14 10:58:00 | ← RES  [9e46cbc6] GET    /reviews/my/all | STATUS: 200 | 7.81ms
+2026-05-14 10:58:17 | → REQ  [d428341d] GET    /static/style.css | IP: 127.0.0.1
+2026-05-14 10:58:17 | ← RES  [d428341d] GET    /static/style.css | STATUS: 304 | 3.67ms
+2026-05-14 10:58:17 | → REQ  [1e21e335] GET    /static/script.js | IP: 127.0.0.1
+2026-05-14 10:58:17 | ← RES  [1e21e335] GET    /static/script.js | STATUS: 304 | 4.02ms
+2026-05-14 10:58:24 | → REQ  [49473b22] GET    /docs | IP: 127.0.0.1
+2026-05-14 10:58:24 | ← RES  [49473b22] GET    /docs | STATUS: 200 | 1.36ms
+2026-05-14 10:58:24 | → REQ  [d8e2577d] GET    /openapi.json | IP: 127.0.0.1
+2026-05-14 10:58:24 | ← RES  [d8e2577d] GET    /openapi.json | STATUS: 200 | 116.16ms
+2026-05-14 10:58:37 | → REQ  [5fb8315b] GET    /admin/rate-limit-status | IP: 127.0.0.1
+2026-05-14 10:58:37 | ← RES  [5fb8315b] GET    /admin/rate-limit-status | STATUS: 200 | 2.75ms
+2026-05-14 11:20:18 | → REQ  [b6e6a2d7] GET    /static/style.css | IP: 127.0.0.1
+2026-05-14 11:20:18 | → REQ  [79591c2a] GET    /static/script.js | IP: 127.0.0.1
+2026-05-14 11:20:18 | ← RES  [b6e6a2d7] GET    /static/style.css | STATUS: 304 | 9.77ms
+2026-05-14 11:20:18 | ← RES  [79591c2a] GET    /static/script.js | STATUS: 304 | 5.82ms
+2026-06-14 16:08:40 | → REQ  [268421b0] GET    / | IP: 127.0.0.1
+2026-06-14 16:08:40 | ← RES  [268421b0] GET    / | STATUS: 200 | 51.19ms
+2026-06-14 16:08:40 | → REQ  [4be676d3] GET    /static/style.css | IP: 127.0.0.1
+2026-06-14 16:08:40 | → REQ  [82183142] GET    /static/script.js | IP: 127.0.0.1
+2026-06-14 16:08:40 | ← RES  [4be676d3] GET    /static/style.css | STATUS: 200 | 5.77ms
+2026-06-14 16:08:40 | ← RES  [82183142] GET    /static/script.js | STATUS: 200 | 5.51ms
+2026-06-14 16:08:47 | → REQ  [56b58293] GET    / | IP: 127.0.0.1
+2026-06-14 16:08:47 | ← RES  [56b58293] GET    / | STATUS: 200 | 3.62ms
+2026-06-14 16:08:48 | → REQ  [c473605e] GET    /static/style.css | IP: 127.0.0.1
+2026-06-14 16:08:48 | → REQ  [849c5181] GET    /static/script.js | IP: 127.0.0.1
+2026-06-14 16:08:48 | ← RES  [c473605e] GET    /static/style.css | STATUS: 200 | 5.57ms
+2026-06-14 16:08:48 | ← RES  [849c5181] GET    /static/script.js | STATUS: 200 | 5.85ms
+2026-06-14 16:08:48 | → REQ  [fffd2108] GET    /favicon.ico | IP: 127.0.0.1
+2026-06-14 16:08:48 | ← RES  [fffd2108] GET    /favicon.ico | STATUS: 404 | 2.01ms
+2026-06-14 16:08:55 | → REQ  [0f7656aa] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:08:55 | ← RES  [0f7656aa] POST   /auth/login | STATUS: 401 | 35.78ms
+2026-06-14 16:09:02 | → REQ  [71a7627d] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:09:02 | ← RES  [71a7627d] POST   /auth/login | STATUS: 401 | 8.13ms
+2026-06-14 16:09:08 | → REQ  [299a9180] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:09:08 | ← RES  [299a9180] POST   /auth/login | STATUS: 401 | 10.02ms
+2026-06-14 16:09:39 | → REQ  [5f18af19] POST   /auth/register | IP: 127.0.0.1
+2026-06-14 16:09:40 | ← RES  [5f18af19] POST   /auth/register | STATUS: 200 | 968.06ms
+2026-06-14 16:09:52 | → REQ  [a1debefa] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:09:53 | ← RES  [a1debefa] POST   /auth/login | STATUS: 401 | 1023.28ms
+2026-06-14 16:09:55 | → REQ  [fb80b065] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:09:55 | ← RES  [fb80b065] POST   /auth/login | STATUS: 401 | 854.51ms
+2026-06-14 16:10:01 | → REQ  [def6d1a8] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:10:02 | ← RES  [def6d1a8] POST   /auth/login | STATUS: 401 | 1126.79ms
+2026-06-14 16:10:11 | → REQ  [991118d5] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 16:10:12 | ← RES  [991118d5] POST   /auth/login | STATUS: 200 | 759.69ms
+2026-06-14 16:10:13 | → REQ  [134927ee] GET    /courses | IP: 127.0.0.1
+2026-06-14 16:10:13 | ← RES  [134927ee] GET    /courses | STATUS: 200 | 17.03ms
+2026-06-14 16:11:55 | → REQ  [bbe63681] POST   /create | IP: 127.0.0.1
+2026-06-14 16:11:55 | ← RES  [bbe63681] POST   /create | STATUS: 200 | 50.53ms
+2026-06-14 16:12:17 | → REQ  [f4199454] GET    /courses | IP: 127.0.0.1
+2026-06-14 16:12:17 | ← RES  [f4199454] GET    /courses | STATUS: 200 | 15.36ms
+2026-06-14 17:07:02 | → REQ  [214c4a34] POST   /auth/register | IP: 127.0.0.1
+2026-06-14 17:07:04 | ← RES  [214c4a34] POST   /auth/register | STATUS: 200 | 1109.09ms
+2026-06-14 17:07:09 | → REQ  [fc06944e] POST   /auth/login | IP: 127.0.0.1
+2026-06-14 17:07:10 | ← RES  [fc06944e] POST   /auth/login | STATUS: 200 | 847.22ms
+2026-06-14 17:07:11 | → REQ  [890e531a] GET    /courses | IP: 127.0.0.1
+2026-06-14 17:07:11 | ← RES  [890e531a] GET    /courses | STATUS: 200 | 167.16ms
+2026-06-14 17:07:20 | → REQ  [7be470ba] GET    /courses | IP: 127.0.0.1
+2026-06-14 17:07:20 | ← RES  [7be470ba] GET    /courses | STATUS: 200 | 161.77ms

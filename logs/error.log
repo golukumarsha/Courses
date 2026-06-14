@@ -84,3 +84,220 @@ fastapi.exceptions.ResponseValidationError: 1 validation error:
 2026-05-13 14:17:29 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'nisha2332@gmail.com'
 2026-05-13 14:17:29 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
 2026-05-13 15:04:45 | [33mWARNING [0m | main | HTTP 404 on /favicon.ico: Not Found
+2026-05-14 10:55:44 | [33mWARNING [0m | main | HTTP 404 on /favicon.ico: Not Found
+2026-05-14 10:55:59 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'nisha2332@gmail.com'
+2026-05-14 10:55:59 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-14 10:56:22 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-14 10:56:22 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-14 10:56:24 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-14 10:56:24 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-14 10:56:34 | [33mWARNING [0m | routers.auth | REGISTER failed — email already exists: golukumar833533@gmail.com
+2026-05-14 10:56:34 | [33mWARNING [0m | main | HTTP 400 on /auth/register: Yeh email already registered hai
+2026-05-14 10:56:35 | [33mWARNING [0m | routers.auth | REGISTER failed — email already exists: golukumar833533@gmail.com
+2026-05-14 10:56:35 | [33mWARNING [0m | main | HTTP 400 on /auth/register: Yeh email already registered hai
+2026-05-14 10:56:44 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-14 10:56:44 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-14 10:56:49 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar833533@gmail.com'
+2026-05-14 10:56:49 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-05-14 10:56:53 | [33mWARNING [0m | rate_limiter | RATE LIMIT exceeded — IP: 127.0.0.1 | Path: /auth/login | Rule: /auth/login | Count: 5/5 | Retry after: 5s
+2026-05-14 10:56:53 | [31mERROR   [0m | main | ← ERR  [e7b8f0c6] POST /auth/login | UNHANDLED: HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 5 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 5} | 42.68ms
+2026-05-14 10:56:53 | [35mCRITICAL[0m | main | UNHANDLED EXCEPTION on /auth/login: HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 5 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 5}
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 81, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\anyio\_backends\_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     )
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\main.py", line 77, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\utils\rate_limiter.py", line 103, in rate_limit_middleware
+    |     raise HTTPException(
+    |     ...<14 lines>...
+    |     )
+    | fastapi.exceptions.HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 5 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 5}
+    +------------------------------------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\main.py", line 77, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\utils\rate_limiter.py", line 103, in rate_limit_middleware
+    raise HTTPException(
+    ...<14 lines>...
+    )
+fastapi.exceptions.HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 5 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 5}
+2026-05-14 10:56:55 | [33mWARNING [0m | rate_limiter | RATE LIMIT exceeded — IP: 127.0.0.1 | Path: /auth/login | Rule: /auth/login | Count: 5/5 | Retry after: 3s
+2026-05-14 10:56:55 | [31mERROR   [0m | main | ← ERR  [cd58912c] POST /auth/login | UNHANDLED: HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 3 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 3} | 2.11ms
+2026-05-14 10:56:55 | [35mCRITICAL[0m | main | UNHANDLED EXCEPTION on /auth/login: HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 3 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 3}
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 81, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 192, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "C:\Users\HP\anaconda3\Lib\site-packages\anyio\_backends\_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     )
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\main.py", line 77, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\utils\rate_limiter.py", line 103, in rate_limit_middleware
+    |     raise HTTPException(
+    |     ...<14 lines>...
+    |     )
+    | fastapi.exceptions.HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 3 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 3}
+    +------------------------------------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\main.py", line 77, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\anaconda3\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "C:\Users\HP\anaconda3\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\OneDrive\Desktop\ML-SHE\Course_API\utils\rate_limiter.py", line 103, in rate_limit_middleware
+    raise HTTPException(
+    ...<14 lines>...
+    )
+fastapi.exceptions.HTTPException: 429: {'error': 'Too Many Requests', 'message': 'Aap bahut zyada requests kar rahe hain! 3 second baad try karein.', 'limit': 5, 'window': '60 seconds', 'retry_after': 3}
+2026-06-14 16:08:48 | [33mWARNING [0m | main | HTTP 404 on /favicon.ico: Not Found
+2026-06-14 16:08:55 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:08:55 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:09:02 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:09:02 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:09:08 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:09:08 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:09:53 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:09:53 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:09:53 | [33mWARNING [0m | main | 🐢 SLOW REQUEST [a1debefa] /auth/login took 1023.28ms
+2026-06-14 16:09:55 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:09:55 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:10:02 | [33mWARNING [0m | routers.auth | LOGIN failed — wrong email/password for 'golukumar83353@gmail.com'
+2026-06-14 16:10:02 | [33mWARNING [0m | main | HTTP 401 on /auth/login: Email ya password galat hai
+2026-06-14 16:10:02 | [33mWARNING [0m | main | 🐢 SLOW REQUEST [def6d1a8] /auth/login took 1126.79ms
+2026-06-14 17:07:04 | [33mWARNING [0m | main | 🐢 SLOW REQUEST [214c4a34] /auth/register took 1109.09ms

@@ -1,3 +1,13 @@
 {
-    "workbench.externalBrowser": "Open in Browser"
+    "workbench.externalBrowser": "Open in Browser",
+    "window.autoDetectColorScheme": false,
+    "window.closeWhenEmpty": true,
+    "window.density.editorTabHeight": "compact",
+    "window.zoomPerWindow": true,
+    "window.titleSeparator": " -",
+    "window.zoomLevel": 0,
+    "window.commandCenter": true,
+    "window.confirmSaveUntitledWorkspace": true,
+    "inlineChat.notebookAgent": false,
+    "chat.disableAIFeatures": false
 }

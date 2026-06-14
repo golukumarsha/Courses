@@ -183,6 +183,17 @@ async function api(method, path, body=null) {
   const opts = { method, headers };
   if (body) opts.body = JSON.stringify(body);
   const res = await fetch(BASE_URL + path, opts);
+
+  // ── 429 Rate Limit ──────────────────────────────────
+  if (res.status === 429) {
+    const data = await res.json();
+    const retryAfter = res.headers.get('Retry-After') || '60';
+    const remaining  = res.headers.get('X-RateLimit-Remaining') || '0';
+    showRateLimitBanner(data.retry_after || retryAfter, data.limit || 60);
+    toast(`🚦 Rate limit! ${retryAfter}s baad try karein`, 'error');
+    return { ok: false, status: 429, data };
+  }
+
   if (res.status === 401) { toast('Session expire — dobara login karein', 'error'); doLogout(); throw new Error('Unauthorized'); }
   let data;
   try {
@@ -191,7 +202,7 @@ async function api(method, path, body=null) {
     const text = await res.text().catch(() => 'Server error');
     data = { detail: 'Server error: ' + res.status + ' — ' + text.substring(0, 100) };
   }
-  // ── 422 Validation errors — readable banao ──────────
+  // ── 422 Validation errors ───────────────────────────
   if (res.status === 422 && data.detail && Array.isArray(data.detail)) {
     const msgs = data.detail.map(err => {
       const field = err.loc ? err.loc[err.loc.length - 1] : 'field';
@@ -203,7 +214,43 @@ async function api(method, path, body=null) {
   return { ok: res.ok, status: res.status, data };
 }
 
-// ─── VALIDATION ERROR POPUP ───────────────────────────
+// ─── RATE LIMIT BANNER ────────────────────────────────
+function showRateLimitBanner(retryAfter, limit) {
+  const old = document.getElementById('rate-limit-banner');
+  if (old) old.remove();
+
+  const banner = document.createElement('div');
+  banner.id = 'rate-limit-banner';
+  banner.className = 'rate-limit-banner';
+
+  let seconds = parseInt(retryAfter) || 60;
+  banner.innerHTML = `
+    <div class="rl-icon">🚦</div>
+    <div class="rl-content">
+      <div class="rl-title">Rate Limit Exceeded</div>
+      <div class="rl-msg">Aap bahut zyada requests kar rahe hain! <strong id="rl-countdown">${seconds}s</strong> baad try karein.</div>
+      <div class="rl-bar-wrap"><div class="rl-bar" id="rl-bar" style="width:100%"></div></div>
+    </div>
+    <button onclick="document.getElementById('rate-limit-banner').remove()">✕</button>
+  `;
+  document.body.appendChild(banner);
+
+  // Countdown timer
+  const total = seconds;
+  const interval = setInterval(() => {
+    seconds--;
+    const el = document.getElementById('rl-countdown');
+    const bar = document.getElementById('rl-bar');
+    if (!el || !bar) { clearInterval(interval); return; }
+    el.textContent = seconds + 's';
+    bar.style.width = (seconds / total * 100) + '%';
+    if (seconds <= 0) {
+      clearInterval(interval);
+      const b = document.getElementById('rate-limit-banner');
+      if (b) b.remove();
+    }
+  }, 1000);
+}
 function showValidationErrors(msgs) {
   // Remove old popup if any
   const old = document.getElementById('validation-popup');
