@@ -683,3 +683,15 @@ fastapi.exceptions.ResponseValidationError: 1 validation error:
 2026-05-13 15:08:11 | [32mINFO    [0m | routers.analytics | ANALYTICS top-instructors — top: 'Aanya Sharma'
 2026-05-13 15:08:24 | [32mINFO    [0m | routers.courses | SEARCH q='1' → 0 results
 2026-05-13 15:16:39 | [32mINFO    [0m | main | 🛑 CourseVault API — SHUTTING DOWN
+2026-05-13 21:34:04 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 21:34:04 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 21:34:04 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 21:34:04 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 21:34:04 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 21:34:04 | [32mINFO    [0m | main | ✅ Enrollment router loaded
+2026-05-13 21:34:07 | [32mINFO    [0m | main | 🚀 CourseVault API starting up...
+2026-05-13 21:34:07 | [32mINFO    [0m | main | ✅ Courses router loaded
+2026-05-13 21:34:07 | [32mINFO    [0m | main | ✅ Auth router loaded
+2026-05-13 21:34:07 | [32mINFO    [0m | main | ✅ Analytics router loaded
+2026-05-13 21:34:07 | [32mINFO    [0m | main | ✅ Reviews router loaded
+2026-05-13 21:34:07 | [32mINFO    [0m | main | ✅ Enrollment router loaded
